@@ -9,7 +9,7 @@ const Login = () => {
 
     const onSumbit = (data) => {
         console.log("Form submitted :", data)
-        navigate('/categories')
+        navigate('/product')
     }
     return (
         <>
@@ -51,7 +51,7 @@ const Login = () => {
                     </div>
 
                     {/* Submit button */}
-                    <button to='' className="w-full bg-[#55B4C9] text-white font-semibold py-2  hover:bg-[#558893] transition text-poppin">Go</button>
+                    <button  className="w-full bg-[#55B4C9] text-white font-semibold py-2 cursor-pointer  hover:bg-[#558893] transition text-poppin">Go</button>
                 </form>
             </section>
         </>
