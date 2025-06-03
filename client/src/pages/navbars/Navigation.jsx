@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaBars, FaTimes, FaMinus, FaPlus } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Navigation = () => {
     const navigate = useNavigate()
@@ -18,14 +18,14 @@ const Navigation = () => {
         setCatOpen(!isCatOpen)
     }
 
-    const logout = () =>{
+    const logout = () => {
         navigate('/')
     }
     return (
         <>
             <div className=" font-poppin">
                 <nav className="bg-[#3F3F3F] text-white flex justify-between items-center px-6 py-4">
-                    <div className="text-xl font-semibold font-poppin">Hashtechy</div>
+                    <div className="text-xl font-semibold font-poppin"><Link to='/product'>Hashtechy</Link></div>
                     <div>
                         <button onClick={logout} className="mr-5 font-poppin cursor-pointer">
                             Logout
@@ -46,11 +46,12 @@ const Navigation = () => {
                             </button>
                         </div>
                         <ul className='space-y-2  text-gray-900'>
+                            <li className='flex justify-between items-center font-semibold cursor-pointer'><Link to='/product'>All Products</Link></li>
                             <div onClick={toggleCategory} className='flex justify-between items-center font-semibold cursor-pointer'>
                                 <span>Categories</span>
-                                {isCatOpen? <FaMinus/> : <FaPlus/>}
-                            </div> 
-                           {/* The category dropdown menu will comes here */}
+                                {isCatOpen ? <FaMinus /> : <FaPlus />}
+                            </div>
+                            {/* The category dropdown menu will comes here */}
                             <li>
                                 <div onClick={toggleMakeuo} className='flex justify-between items-center font-semibold cursor-pointer'>
                                     <span>Make Up</span>
@@ -65,7 +66,7 @@ const Navigation = () => {
                                     </ul>
                                 )}
                             </li>
-
+                            <li className='flex justify-between items-center font-semibold cursor-pointer'><Link to='/cart'>My cart</Link></li>
                         </ul>
                     </div>
 

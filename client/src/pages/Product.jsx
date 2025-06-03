@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navigation from './navbars/Navigation'
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
-const Product = () => {
+const Product = ({ cart, setCart }) => {
+    const navigate = useNavigate()
     const [products, setProducts] = useState([])
-    const [cart, setCart] = useState([])
+
     useEffect(() => {
 
 
@@ -22,11 +24,23 @@ const Product = () => {
 
 
     const addToCart = (Product) => {
-        setCart([...cart, Product]);
+        const existing = cart.find((item) => item.id === Product.id)
+        if (existing) {
+            Swal.fire({
+                icon: 'info',
+                title: "Already in Cart",
+                text: 'This product is already in your cart'
+            });
+            return;
+        }
+        const productWithQty = { ...Product, quantity: 1 };
+        setCart([...cart, productWithQty])
         Swal.fire({
             icon: 'success',
             title: 'Added to cart!',
             text: 'Product added to the cart successfully'
+        }).then(() => {
+            navigate('/cart')
         })
     }
     return (
