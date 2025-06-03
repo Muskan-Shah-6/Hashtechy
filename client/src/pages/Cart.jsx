@@ -34,6 +34,10 @@ const Cart = ({ cartItems, setCartItems }) => {
         })
     }
 
+    const handleProdAdd = () => {
+        navigate('/product')
+    }
+
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
     return (
         <>
@@ -57,7 +61,7 @@ const Cart = ({ cartItems, setCartItems }) => {
                             <div className="col-span-3 text-center">Price</div>
                             <div className="col-span-3 text-center">Quantity</div>
 
-                           
+
                         </div>
                         {cartItems.map((item, index) => (
                             <div key={index}
@@ -115,6 +119,12 @@ const Cart = ({ cartItems, setCartItems }) => {
                                 </button>
                             </div>
                         )}
+                        <button
+                            onClick={handleProdAdd}
+                            className="bg-[#3F3F3F]  hover:bg-[#2f2d2d] text-white px-6 py-2 rounded cursor-pointer"
+                        >
+                            Add Products
+                        </button>
                     </>
 
                 )}
