@@ -23,7 +23,7 @@ const Navigation = () => {
     }
     return (
         <>
-            <div className="min-h-screen font-poppin">
+            <div className=" font-poppin">
                 <nav className="bg-[#3F3F3F] text-white flex justify-between items-center px-6 py-4">
                     <div className="text-xl font-semibold font-poppin">Hashtechy</div>
                     <div>
